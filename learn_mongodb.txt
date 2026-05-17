@@ -9,3 +9,8 @@ db.products.find().pretty()
 db.products.insertOne({name: "A Computer", price: 1229.99, description: "A hight quality computer.", details: {CPU: "Intel Core i7", RAM: "16GB", HDD: "1TB", OS: "Windows 10"}})
 db.products.find().pretty()
 
+show dbs
+
+use flights
+
+db.flights.insertOne({})
