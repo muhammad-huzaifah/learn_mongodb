@@ -30,3 +30,7 @@ db.flights.insertOne({
 db.flightData.find()
 
 db.flightData.find().pretty()
+
+db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR"})
+
+db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR", _id: "txl-1hr-1"})
