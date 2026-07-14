@@ -34,3 +34,17 @@ db.flightData.find().pretty()
 db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR"})
 
 db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR", _id: "txl-1hr-1"})
+
+db.flightData.deleteOne({departureAirport:"TXL"})
+
+db.flightData.deleteMany()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection
+
+db.flightData.updateOne({distance: 12000}, {marker: "delete"})
+MongoInvalidArgumentError: Update document requires atomic operators
+
+db.flightData.updateOne({distance: 12000}, {$set: {marker: "delete"}})
+
+db.flightData.updateMany({}, {$set: {marker: "toDelete"}})
+
+db.flightData.deleteMany({marker: "toDelete"})
