@@ -135,3 +135,121 @@ db.flightData.findOne({distance: {$gt: 900}})
   intercontinental: true
 }
 
+use("flights")
+switched to db flights
+db.flightData.update({_id: ObjectId('6a366ab86d22af5c9146b664')}, {$set: {delayed: true}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.flightData.find().pretty()
+{
+  _id: ObjectId('6a366ab86d22af5c9146b664'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR',
+  delayed: true
+}
+{
+  _id: ObjectId('6a366ae2642ce60c9866f998'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+{
+  _id: 'txl-1hr-1',
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+db.flightData.updateOne({_id: ObjectId('6a366ab86d22af5c9146b664')}, {$set: {delayed: false}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.flightData.find().pretty()
+{
+  _id: ObjectId('6a366ab86d22af5c9146b664'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR',
+  delayed: false
+}
+{
+  _id: ObjectId('6a366ae2642ce60c9866f998'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+{
+  _id: 'txl-1hr-1',
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+db.flightData.updateMany({_id: ObjectId('6a366ab86d22af5c9146b664')}, {$set: {delayed: false}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.flightData.find().pretty()
+{
+  _id: ObjectId('6a366ab86d22af5c9146b664'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR',
+  delayed: false
+}
+{
+  _id: ObjectId('6a366ae2642ce60c9866f998'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+{
+  _id: 'txl-1hr-1',
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+db.flightData.replaceOne({_id: ObjectId('6a366ab86d22af5c9146b664')})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.flightData.replaceOne({_id: ObjectId('6a366ab86d22af5c9146b664')}{
+    "departureAirport": "MUC",
+    "arrivalAirport": "SFO",
+    "aircraft": "Airbus A380",
+    "distance": 12000,
+    "intercontinental": true
+  })
+SyntaxError: Unexpected token, expected "," (1:68)
+
+> 1 | db.flightData.replaceOne({_id: ObjectId('6a366ab86d22af5c9146b664')}{
+    |                                                                     ^
+  2 |     "departureAirport": "MUC",
+  3 |     "arrivalAirport": "SFO",
+  4 |     "aircraft": "Airbus A380",
+db.flightData.find().pretty()
+{
+  _id: ObjectId('6a366ab86d22af5c9146b664')
+}
+{
+  _id: ObjectId('6a366ae2642ce60c9866f998'),
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+{
+  _id: 'txl-1hr-1',
+  departureAirport: 'TXL',
+  arrivalAirport: 'LHR'
+}
+flights
+
+
+
